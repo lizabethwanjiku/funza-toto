@@ -284,14 +284,14 @@ const defaultState: AppState = {
 };
 
 function initials(name: string) {
-  return name.trim().split(/\s+/).map((part) => part[0]).join('').slice(0, 2).toUpperCase() || 'CC';
+  return name.trim().split(/\s+/).map((part) => part[0]).join('').slice(0, 2).toUpperCase() || 'FT';
 }
 
 function Logo() {
   return (
     <Link href="/" className="brand" data-testid="link-brand">
-      <span className="brand-mark">cc</span>
-      <span className="brand-name">code<span>craft</span></span>
+      <span className="brand-mark">ft</span>
+      <span className="brand-name">Funza <span>Toto</span></span>
     </Link>
   );
 }
