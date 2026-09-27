@@ -1,0 +1,28 @@
+kind = "web"
+previewPath = "/"
+title = "Funza Toto"
+description = "Funza Toto means teach a child: a safe, project-based Python learning app for young people. Learners build useful mini-projects, practice coding through guided challenges, track progress locally, and explore age-appropriate ways their skills can create value with adult guidance."
+version = "1.0.0"
+id = "artifacts/codecraft"
+router = "path"
+
+[[services]]
+name = "web"
+paths = [ "/" ]
+localPort = 23642
+
+[services.development]
+run = "pnpm --filter @workspace/codecraft run dev"
+
+[services.production]
+build = [ "pnpm", "--filter", "@workspace/codecraft", "run", "build" ]
+serve = "static"
+publicDir = "artifacts/codecraft/dist/public"
+
+[[services.production.rewrites]]
+from = "/*"
+to = "/index.html"
+
+[services.env]
+PORT = "23642"
+BASE_PATH = "/"
